@@ -14,121 +14,177 @@ async def scrape():
         all_items = []
         seen = set()
         
-        # 方法1：自動發現（試下先）
-        print("🔍 嘗試自動發現分類...")
-        try:
-            await page.goto(f"{base}/tc/", wait_until="networkidle", timeout=15000)
-            
-            # 處理 cookie
-            try:
-                await page.click('button:has-text("確定")', timeout=3000)
-                await asyncio.sleep(2)
-            except:
-                pass
-            
-            # 等多陣等 JavaScript 加載選單
-            await asyncio.sleep(3)
-            
-            # 搵所有可能嘅分類連結（寬鬆版）
-            categories = await page.evaluate('''() => {
-                const found = new Set();
-                
-                // 方法A：搵所有包含分類關鍵字嘅連結
-                document.querySelectorAll('a').forEach(a => {
-                    const href = a.getAttribute('href') || '';
-                    if (href.includes('sushi') || href.includes('sashimi') || 
-                        href.includes('roll') || href.includes('rice') ||
-                        href.includes('set') || href.includes('side') ||
-                        href.includes('drink') || href.includes('dessert')) {
-                        if (href.includes('.html')) found.add(href);
-                    }
-                });
-                
-                return Array.from(found);
-            }''')
-            
-            # 如果搵到，清理成標準格式
-            if categories and len(categories) > 0:
-                # 確保係絕對路徑 /tc/xxx.html
-                categories = list(set([
-                    c if c.startswith('/tc/') else f'/tc/{c}'
-                    for c in categories
-                ]))
-                print(f"✅ 自動發現: {categories}")
-            else:
-                categories = []
-                
-        except Exception as e:
-            print(f"❌ 自動發現失敗: {e}")
-            categories = []
+        # 直接用手動 list（避免自動發現失敗）
+        categories = [
+            '/tc/sushi.html',
+            '/tc/sashimi.html', 
+            '/tc/roll.html',
+            '/tc/rice.html',
+            '/tc/set.html',
+            '/tc/side.html',
+            '/tc/dessert.html',
+            '/tc/drink.html',
+            '/tc/nigiri.html',
+            '/tc/gunkan.html'
+        ]
         
-        # 方法2：如果自動搵唔到，用手動列表（fallback）
-        if not categories:
-            print("⚠️ 改用預設分類列表")
-            categories = [
-                '/tc/sushi.html',
-                '/tc/sashimi.html',
-                '/tc/roll.html',
-                '/tc/rice.html',
-                '/tc/set.html',
-                '/tc/side.html',
-                '/tc/dessert.html',
-                '/tc/drink.html'
-            ]
+        print(f"將會處理 {len(categories)} 個分類")
         
-        print(f"\n總共處理 {len(categories)} 個分類")
-        
-        # Step 2: 爬每個分類
         for cat in categories:
-            print(f"\n📂 {cat}")
+            print(f"\n{'='*50}")
+            print(f"📂 開始處理: {cat}")
+            print(f"{'='*50}")
             
-            for p_num in range(1, 15):
-                # 第1頁冇 ?p=，之後有
-                url = f"{base}{cat}" if p_num == 1 else f"{base}{cat}?p={p_num}"
+            p_num = 1
+            
+            while p_num <= 15:
+                # 關鍵：第1頁唔加 ?p=
+                if p_num == 1:
+                    url = f"{base}{cat}"
+                else:
+                    url = f"{base}{cat}?p={p_num}"
+                
+                print(f"\n  🌐 第 {p_num} 頁: {url}")
                 
                 try:
-                    await page.goto(url, wait_until="networkidle", timeout=20000)
-                    await asyncio.sleep(2)
+                    # 去頁面
+                    response = await page.goto(url, wait_until="networkidle", timeout=20000)
+                    print(f"     狀態碼: {response.status if response else 'N/A'}")
                     
+                    # 第1頁處理 cookie
+                    if p_num == 1:
+                        try:
+                            await page.click('button:has-text("確定")', timeout=5000)
+                            await asyncio.sleep(2)
+                            print("     ✓ 已點擊確定")
+                        except:
+                            print("     冇 cookie banner 或已處理")
+                    
+                    # 等產品加載
+                    await asyncio.sleep(3)
+                    
+                    # 檢查頁面標題（確認入到正確頁面）
+                    title = await page.title()
+                    print(f"     頁面標題: {title[:30]}...")
+                    
+                    # 提取產品（多個後備 selector）
                     items = await page.evaluate('''() => {
-                        const res = [];
-                        document.querySelectorAll('.product-item, .item, [class*="product"]').forEach(el => {
-                            const name = el.querySelector('h3, h4, strong')?.innerText?.trim();
+                        const results = [];
+                        
+                        // 後備 selector 列表
+                        const selectors = [
+                            '.product-item',
+                            '.item.product',
+                            '.category-products .item',
+                            '.products-grid > div',
+                            '[data-product-id]',
+                            '.product-list .item'
+                        ];
+                        
+                        let elements = [];
+                        for (let sel of selectors) {
+                            elements = document.querySelectorAll(sel);
+                            if (elements.length > 0) {
+                                console.log('Selector matched:', sel, elements.length);
+                                break;
+                            }
+                        }
+                        
+                        // 如果都搵唔到，試下搵有圖片嘅 div
+                        if (elements.length === 0) {
+                            document.querySelectorAll('div').forEach(div => {
+                                if (div.querySelector('img') && div.innerText.includes('$')) {
+                                    elements.push(div);
+                                }
+                            });
+                        }
+                        
+                        console.log('Total elements found:', elements.length);
+                        
+                        elements.forEach((el, idx) => {
+                            // 搵名
+                            let name = '';
+                            const nameSelectors = ['h3', 'h4', '.product-name', 'strong', 'b'];
+                            for (let sel of nameSelectors) {
+                                const found = el.querySelector(sel);
+                                if (found) {
+                                    name = found.innerText.trim();
+                                    if (name && name.length > 1) break;
+                                }
+                            }
+                            
+                            // 搵圖
                             const img = el.querySelector('img');
-                            let src = img?.dataset?.src || img?.src;
-                            if (name && src) {
-                                if (src.startsWith('/')) src = 'https://order.genkisushi.com.hk' + src;
-                                res.push({name, imgUrl: src});
+                            let imgUrl = '';
+                            if (img) {
+                                imgUrl = img.getAttribute('data-src') || 
+                                        img.getAttribute('src') ||
+                                        img.getAttribute('data-original');
+                            }
+                            
+                            // 驗證
+                            if (name && imgUrl && 
+                                name.length > 1 && 
+                                name.length < 100 &&
+                                !name.includes('期間限定') &&  // 過濾標題
+                                !name.includes('查看更多') &&
+                                imgUrl.includes('media')) {     // 確保係產品圖
+                                
+                                if (imgUrl.startsWith('/')) {
+                                    imgUrl = 'https://order.genkisushi.com.hk' + imgUrl;
+                                }
+                                
+                                results.push({name, imgUrl});
                             }
                         });
-                        return res;
+                        
+                        return results;
                     }''')
                     
-                    if not items:
-                        print(f"  第{p_num}頁完")
+                    if not items or len(items) == 0:
+                        print(f"     ⚠️ 無產品數據")
+                        # 如果第1頁就無，可能頁面結構唔同，試下截圖或攝 HTML
+                        if p_num == 1:
+                            html_preview = await page.content()
+                            print(f"     HTML 長度: {len(html_preview)}")
+                            # 檢查有冇「即將推出」或「暫無產品」
+                            if "即將推出" in html_preview or "暫無" in html_preview:
+                                print("     頁面顯示暫無產品")
                         break
                     
-                    new = sum(1 for it in items if it['name'] not in seen)
+                    # 加入新項目
+                    new_count = 0
                     for it in items:
                         if it['name'] not in seen:
                             seen.add(it['name'])
                             all_items.append(it)
+                            new_count += 1
                     
-                    print(f"  第{p_num}頁: +{new}項 (共{len(all_items)})")
+                    print(f"     ✓ 找到 {len(items)} 個元素，新增 {new_count} 項")
+                    print(f"     例子: {items[0]['name'][:20]}... ({items[0]['imgUrl'][:50]}...)")
                     
-                    if new == 0 and p_num > 1:
+                    # 如果冇新項目，可能分頁已完
+                    if new_count == 0 and p_num > 1:
+                        print(f"     無新項目，分類完成")
                         break
-                        
+                    
+                    p_num += 1
+                    
                 except Exception as e:
-                    print(f"  錯誤: {e}")
+                    print(f"     ❌ 錯誤: {str(e)[:100]}")
                     break
+            
+            print(f"  分類完成，暫時總數: {len(all_items)}")
         
         await browser.close()
         
+        # 儲存
         with open('menu.json', 'w', encoding='utf-8') as f:
             json.dump(all_items, f, ensure_ascii=False, indent=2)
         
-        print(f"\n🎉 完成！{len(all_items)} 項")
+        print(f"\n{'='*50}")
+        print(f"🎉 完成！總共 {len(all_items)} 個品項")
+        print(f"{'='*50}")
 
 if __name__ == "__main__":
     asyncio.run(scrape())
