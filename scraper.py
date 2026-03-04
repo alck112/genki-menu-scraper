@@ -14,122 +14,148 @@ async def scrape():
         all_items = []
         seen = set()
         
-        # Step 1: 去主頁搵分類
-        print("🔍 去主頁搵分類...")
-        await page.goto(f"{base}/tc/", wait_until="networkidle")
+        # 所有有效分類（15個）
+        categories = [
+            '/tc/sushi.html',
+            '/tc/sashimi.html',
+            '/tc/gunkan.html',
+            '/tc/drinks.html',
+            '/tc/seasonal.html',
+            '/tc/seared-sushi.html',
+            '/tc/hot-picks.html',
+            '/tc/roll-sushi.html',
+            '/tc/hand-rolls.html',
+            '/tc/appetizers.html',
+            '/tc/hot-food.html',
+            '/tc/udon.html',
+            '/tc/kids-choice.html',
+            '/tc/green-choice.html',
+            '/tc/desserts.html'
+        ]
         
-        try:
-            await page.click('button:has-text("確定")', timeout=3000)
-            await asyncio.sleep(2)
-        except:
-            pass
+        print(f"將處理 {len(categories)} 個分類")
         
-        await asyncio.sleep(5)
-        
-        # 搵所有連結（處理絕對同相對 URL）
-        raw_links = await page.evaluate('''() => {
-            return Array.from(document.querySelectorAll('a'))
-                .map(a => a.getAttribute('href'))
-                .filter(h => h && (
-                    h.includes('/tc/') || 
-                    h.includes('order.genkisushi.com.hk/tc/')
-                ));
-        }''')
-        
-        print(f"  搵到 {len(raw_links)} 個連結")
-        print(f"  例子: {raw_links[:10]}")
-        
-        # 清理：統一變成 /tc/xxx.html 格式
-        categories = set()
-        for link in raw_links:
-            # 如果係完整 URL，提取 path 部分
-            if link.startswith('http'):
-                # 提取 https://.../tc/xxx.html → /tc/xxx.html
-                if '/tc/' in link:
-                    path = link.split('/tc/')[1]
-                    if path and path.endswith('.html'):
-                        categories.add(f'/tc/{path}')
-            # 如果已經係相對路徑
-            elif link.startswith('/tc/') and link.endswith('.html'):
-                categories.add(link)
-        
-        categories = list(categories)
-        print(f"\n✅ 清理後: {categories}")
-        
-        # Fallback 如果搵唔到
-        if not categories:
-            print("⚠️ 用後備列表")
-            categories = ['/tc/sushi.html', '/tc/sashimi.html', '/tc/gunkan.html']
-        
-        # Step 2: 爬每個分類
         for cat in categories:
-            print(f"\n📂 {cat}")
+            print(f"\n{'='*50}")
+            print(f"📂 {cat}")
+            print(f"{'='*50}")
+            
             p_num = 1
             
-            while p_num <= 10:
-                # 正確構造 URL
+            while p_num <= 15:  # 每個分類最多15頁
+                # 正確構造 URL：第1頁冇 ?p=，第2頁開始加 ?p=2
                 if p_num == 1:
                     url = f"{base}{cat}"
                 else:
                     url = f"{base}{cat}?p={p_num}"
                 
+                print(f"  第 {p_num} 頁: {url}")
+                
                 try:
-                    response = await page.goto(url, wait_until="networkidle", timeout=15000)
+                    response = await page.goto(url, wait_until="networkidle", timeout=20000)
                     
                     if response.status != 200:
-                        print(f"  ❌ {response.status}")
+                        print(f"    ❌ HTTP {response.status}，跳過")
                         break
                     
+                    # 第1頁處理 cookie banner
                     if p_num == 1:
                         try:
-                            await page.click('button:has-text("確定")', timeout=3000)
-                            await asyncio.sleep(1)
+                            await page.click('button:has-text("確定")', timeout=5000)
+                            await asyncio.sleep(2)
+                            print("    ✓ 已處理 cookie")
                         except:
                             pass
                     
-                    await asyncio.sleep(2)
+                    # 等產品加載（重要！）
+                    await asyncio.sleep(3)
                     
-                    # 提取產品
+                    # 提取產品數據
                     items = await page.evaluate('''() => {
-                        const res = [];
-                        document.querySelectorAll('.product-item, .item').forEach(el => {
-                            const name = el.querySelector('h3, h4, .product-name')?.innerText?.trim();
+                        const results = [];
+                        
+                        // 搵產品元素（多個後備 selector）
+                        const elements = document.querySelectorAll('.product-item, .item.product, .category-products > div, [class*="product-item"]');
+                        
+                        elements.forEach(el => {
+                            // 搵名稱
+                            let name = '';
+                            const nameSelectors = ['h3', 'h4', '.product-name', 'strong'];
+                            for (let sel of nameSelectors) {
+                                const found = el.querySelector(sel);
+                                if (found && found.innerText) {
+                                    name = found.innerText.trim();
+                                    if (name && name.length > 0) break;
+                                }
+                            }
+                            
+                            // 搵圖片（優先 data-src，因為係 lazy load）
                             const img = el.querySelector('img');
-                            let src = img?.dataset?.src || img?.src;
-                            if (name && src) {
-                                if (src.startsWith('/')) src = 'https://order.genkisushi.com.hk' + src;
-                                res.push({name, imgUrl: src});
+                            let imgUrl = '';
+                            if (img) {
+                                imgUrl = img.getAttribute('data-src') || 
+                                        img.getAttribute('src') ||
+                                        img.getAttribute('data-original');
+                            }
+                            
+                            // 驗證：要有名、有圖、名要合理
+                            if (name && imgUrl && 
+                                name.length > 1 && 
+                                name.length < 50 &&
+                                !name.includes('期間限定') &&  # 過濾標題
+                                !name.includes('查看更多') &&
+                                imgUrl.includes('media')) {     # 確保係產品圖
+                                
+                                // 確保係絕對 URL
+                                if (imgUrl.startsWith('/')) {
+                                    imgUrl = 'https://order.genkisushi.com.hk' + imgUrl;
+                                }
+                                
+                                results.push({name, imgUrl});
                             }
                         });
-                        return res;
+                        
+                        return results;
                     }''')
                     
-                    if not items:
+                    if not items or len(items) == 0:
+                        print(f"    ⚠️ 無產品，分類完成")
                         break
                     
-                    new = 0
+                    # 去重並加入
+                    new_count = 0
                     for it in items:
                         if it['name'] not in seen:
                             seen.add(it['name'])
                             all_items.append(it)
-                            new += 1
+                            new_count += 1
                     
-                    print(f"  第{p_num}頁: +{new}項")
+                    print(f"    ✓ 找到 {len(items)} 個，新增 {new_count} 項 (總計: {len(all_items)})")
                     
-                    if new == 0:
+                    # 如果無新項目（即係同上一頁重複），就停
+                    if new_count == 0:
+                        print(f"    🔄 無新項目，可能分頁重複")
                         break
+                    
                     p_num += 1
                     
                 except Exception as e:
-                    print(f"  錯誤: {e}")
+                    print(f"    ❌ 錯誤: {str(e)[:100]}")
                     break
+            
+            print(f"  分類完成，暫時總數: {len(all_items)}")
         
         await browser.close()
         
+        # 儲存結果
         with open('menu.json', 'w', encoding='utf-8') as f:
             json.dump(all_items, f, ensure_ascii=False, indent=2)
         
-        print(f"\n🎉 完成！{len(all_items)} 項")
+        print(f"\n{'='*50}")
+        print(f"🎉 全部完成！")
+        print(f"總共 {len(all_items)} 個唯一品項")
+        print(f"處理咗 {len(categories)} 個分類")
+        print(f"{'='*50}")
 
 if __name__ == "__main__":
     asyncio.run(scrape())
