@@ -15,12 +15,17 @@ async def scrape():
         # 1. 自動發現所有分類
         print("搵緊分類...")
         await page.goto(f"{base}/tc/", wait_until="networkidle")
-        await page.click('button:has-text("確定")').catch(lambda _: None)
+        
+        # 處理 cookie banner（用 try/except 代替 .catch）
+        try:
+            await page.click('button:has-text("確定")', timeout=3000)
+        except:
+            pass
         
         cats = await page.evaluate('''() => 
             [...document.querySelectorAll('a[href*=".html"]')]
                 .map(a => a.getAttribute('href'))
-                .filter(h => /(sushi|sashimi|roll|rice|set|side|drink|dessert|gunkan)/.test(h))
+                .filter(h => /(sushi|sashimi|roll|rice|set|side|drink|dessert|gunkan)/i.test(h))
                 .filter((v,i,a) => a.indexOf(v)===i)
         ''')
         
@@ -29,10 +34,12 @@ async def scrape():
         # 2. 爬每個分類
         for cat in cats:
             url = urljoin(base, cat)
+            print(f"處理: {cat}")
+            
             for p_num in range(1, 10):
                 try:
                     await page.goto(f"{url}?p={p_num}", wait_until="networkidle")
-                    await asyncio.sleep(1.5)  # 等圖片load
+                    await asyncio.sleep(1.5)
                     
                     items = await page.evaluate('''() => {
                         const res = [];
@@ -45,17 +52,24 @@ async def scrape():
                         return res;
                     }''')
                     
-                    if not items: break
+                    if not items:
+                        print(f"  第{p_num}頁無數據")
+                        break
                     
                     for it in items:
                         if it['name'] not in seen:
                             seen.add(it['name'])
-                            # 確保係絕對URL
                             img = it['src']
-                            if img.startswith('/'): img = base + img
+                            if img.startswith('/'): 
+                                img = base + img
+                            elif img.startswith('http'):
+                                pass
+                            else:
+                                img = base + '/' + img
                             all_items.append({"name": it['name'], "imgUrl": img})
                             
                 except Exception as e:
+                    print(f"  第{p_num}頁錯誤: {e}")
                     break
         
         await browser.close()
