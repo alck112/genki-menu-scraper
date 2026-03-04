@@ -1,6 +1,5 @@
 import asyncio
 import json
-import re
 from playwright.async_api import async_playwright
 
 async def scrape():
@@ -15,118 +14,121 @@ async def scrape():
         all_items = []
         seen = set()
         
-        # Step 1: 自動發現所有分類連結
-        print("🔍 正在發現分類...")
-        await page.goto(f"{base}/tc/", wait_until="networkidle")
-        
-        # 處理 cookie
+        # 方法1：自動發現（試下先）
+        print("🔍 嘗試自動發現分類...")
         try:
-            await page.click('button:has-text("確定")', timeout=5000)
-            await asyncio.sleep(2)
-        except:
-            pass
-        
-        # 搵所有 .html 結尾嘅連結（排除重複、非產品頁）
-        categories = await page.evaluate('''() => {
-            const links = new Set();
-            document.querySelectorAll('a[href*=".html"]').forEach(a => {
-                const href = a.getAttribute('href');
-                // 只取 /tc/xxx.html 格式，排除特殊頁面
-                if (href && href.match(/^\\/tc\\/[a-z-]+\\.html$/)) {
-                    links.add(href);
-                }
-            });
-            return Array.from(links);
-        }''')
-        
-        print(f"發現 {len(categories)} 個分類: {categories}")
-        
-        # Step 2: 遍歷每個分類
-        for cat in categories:
-            print(f"\n📂 處理分類: {cat}")
+            await page.goto(f"{base}/tc/", wait_until="networkidle", timeout=15000)
             
-            p_num = 1
-            prev_count = 0  # 用嚟檢查有冇新嘢
+            # 處理 cookie
+            try:
+                await page.click('button:has-text("確定")', timeout=3000)
+                await asyncio.sleep(2)
+            except:
+                pass
             
-            while p_num <= 20:  # 安全上限
-                # 第1頁唔加 ?p=，第2頁開始加
-                if p_num == 1:
-                    url = f"{base}{cat}"
-                else:
-                    url = f"{base}{cat}?p={p_num}"
+            # 等多陣等 JavaScript 加載選單
+            await asyncio.sleep(3)
+            
+            # 搵所有可能嘅分類連結（寬鬆版）
+            categories = await page.evaluate('''() => {
+                const found = new Set();
                 
-                print(f"  第 {p_num} 頁...")
+                // 方法A：搵所有包含分類關鍵字嘅連結
+                document.querySelectorAll('a').forEach(a => {
+                    const href = a.getAttribute('href') || '';
+                    if (href.includes('sushi') || href.includes('sashimi') || 
+                        href.includes('roll') || href.includes('rice') ||
+                        href.includes('set') || href.includes('side') ||
+                        href.includes('drink') || href.includes('dessert')) {
+                        if (href.includes('.html')) found.add(href);
+                    }
+                });
+                
+                return Array.from(found);
+            }''')
+            
+            # 如果搵到，清理成標準格式
+            if categories and len(categories) > 0:
+                # 確保係絕對路徑 /tc/xxx.html
+                categories = list(set([
+                    c if c.startswith('/tc/') else f'/tc/{c}'
+                    for c in categories
+                ]))
+                print(f"✅ 自動發現: {categories}")
+            else:
+                categories = []
+                
+        except Exception as e:
+            print(f"❌ 自動發現失敗: {e}")
+            categories = []
+        
+        # 方法2：如果自動搵唔到，用手動列表（fallback）
+        if not categories:
+            print("⚠️ 改用預設分類列表")
+            categories = [
+                '/tc/sushi.html',
+                '/tc/sashimi.html',
+                '/tc/roll.html',
+                '/tc/rice.html',
+                '/tc/set.html',
+                '/tc/side.html',
+                '/tc/dessert.html',
+                '/tc/drink.html'
+            ]
+        
+        print(f"\n總共處理 {len(categories)} 個分類")
+        
+        # Step 2: 爬每個分類
+        for cat in categories:
+            print(f"\n📂 {cat}")
+            
+            for p_num in range(1, 15):
+                # 第1頁冇 ?p=，之後有
+                url = f"{base}{cat}" if p_num == 1 else f"{base}{cat}?p={p_num}"
                 
                 try:
-                    await page.goto(url, wait_until="networkidle", timeout=30000)
-                    await asyncio.sleep(2.5)
+                    await page.goto(url, wait_until="networkidle", timeout=20000)
+                    await asyncio.sleep(2)
                     
-                    # 提取產品
                     items = await page.evaluate('''() => {
                         const res = [];
-                        // 多個 selector 後備
-                        const elements = document.querySelectorAll(
-                            '.product-item, .item.product, .category-products > div, ' +
-                            '[class*="product-item"], .grid-item'
-                        );
-                        
-                        elements.forEach(el => {
-                            const name = el.querySelector('h3, h4, .product-name, strong')?.innerText?.trim();
+                        document.querySelectorAll('.product-item, .item, [class*="product"]').forEach(el => {
+                            const name = el.querySelector('h3, h4, strong')?.innerText?.trim();
                             const img = el.querySelector('img');
                             let src = img?.dataset?.src || img?.src;
-                            
-                            if (name && src && name.length > 1 && name.length < 50) {
-                                // 清理同驗證 URL
+                            if (name && src) {
                                 if (src.startsWith('/')) src = 'https://order.genkisushi.com.hk' + src;
-                                else if (!src.startsWith('http')) src = 'https://order.genkisushi.com.hk/' + src;
-                                
-                                // 過濾非食物項目
-                                if (!name.includes('$') && !name.includes('返回')) {
-                                    res.push({name, imgUrl: src});
-                                }
+                                res.push({name, imgUrl: src});
                             }
                         });
                         return res;
                     }''')
                     
-                    if not items or len(items) == 0:
-                        print(f"    無數據，分類完成")
+                    if not items:
+                        print(f"  第{p_num}頁完")
                         break
                     
-                    # 檢查係咪同上一頁完全一樣（代表分頁無效/循環）
-                    current_names = set([i['name'] for i in items])
-                    if p_num > 1 and len(current_names - set([i['name'] for i in all_items[-20:]])) == 0:
-                        print(f"    同上一頁重複，分類完成")
-                        break
-                    
-                    # 加入新項目
-                    new_count = 0
+                    new = sum(1 for it in items if it['name'] not in seen)
                     for it in items:
                         if it['name'] not in seen:
                             seen.add(it['name'])
                             all_items.append(it)
-                            new_count += 1
                     
-                    print(f"    +{new_count} 項 (總共 {len(all_items)})")
+                    print(f"  第{p_num}頁: +{new}項 (共{len(all_items)})")
                     
-                    # 如果呢頁冇新嘢，可能已完
-                    if new_count == 0 and p_num > 1:
+                    if new == 0 and p_num > 1:
                         break
-                    
-                    p_num += 1
-                    
+                        
                 except Exception as e:
-                    print(f"    錯誤: {e}")
+                    print(f"  錯誤: {e}")
                     break
         
         await browser.close()
         
-        # 儲存
         with open('menu.json', 'w', encoding='utf-8') as f:
             json.dump(all_items, f, ensure_ascii=False, indent=2)
         
-        print(f"\n🎉 完成！總共 {len(all_items)} 個品項")
-        print(f"分類數量: {len(categories)}")
+        print(f"\n🎉 完成！{len(all_items)} 項")
 
 if __name__ == "__main__":
     asyncio.run(scrape())
