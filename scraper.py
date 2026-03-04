@@ -64,7 +64,7 @@ async def scrape():
                     
                     await asyncio.sleep(3)
                     
-                    # 簡化版 JavaScript，冇 comment，冇換行符號問題
+                    # 簡化 JavaScript
                     items = await page.evaluate('''() => {
                         var results = [];
                         var elements = document.querySelectorAll('.product-item, .item');
@@ -92,7 +92,8 @@ async def scrape():
                         return results;
                     }''')
                     
-                    if not items or items.length == 0:
+                    # Python 用 len() 檢查 list 長度
+                    if not items or len(items) == 0:
                         print(f"    ⚠️ 無產品")
                         break
                     
