@@ -24,48 +24,76 @@ async def scrape():
         except:
             pass
         
-        # 等多陣等 menu 生成
         await asyncio.sleep(5)
         
-        # 檢查有幾多個 <a> tag
-        link_count = await page.evaluate('() => document.querySelectorAll("a").length')
-        print(f"  頁面有 {link_count} 個連結")
-        
-        # 試搵所有包含 /tc/ 嘅 href
-        all_links = await page.evaluate('''() => {
+        # 搵所有連結（處理絕對同相對 URL）
+        raw_links = await page.evaluate('''() => {
             return Array.from(document.querySelectorAll('a'))
                 .map(a => a.getAttribute('href'))
-                .filter(h => h && h.includes('/tc/'));
+                .filter(h => h && (
+                    h.includes('/tc/') || 
+                    h.includes('order.genkisushi.com.hk/tc/')
+                ));
         }''')
-        print(f"  其中 {len(all_links)} 個包含 /tc/")
-        print(f"  例子: {all_links[:10]}")  # 顯示頭10個
         
-        # 正規篩選
-        categories = [h for h in all_links if h and h.endswith('.html') and 'privacy' not in h and 'terms' not in h]
-        categories = list(set(categories))  # 去重
+        print(f"  搵到 {len(raw_links)} 個連結")
+        print(f"  例子: {raw_links[:10]}")
         
-        print(f"\n✅ 篩選後: {categories}")
+        # 清理：統一變成 /tc/xxx.html 格式
+        categories = set()
+        for link in raw_links:
+            # 如果係完整 URL，提取 path 部分
+            if link.startswith('http'):
+                # 提取 https://.../tc/xxx.html → /tc/xxx.html
+                if '/tc/' in link:
+                    path = link.split('/tc/')[1]
+                    if path and path.endswith('.html'):
+                        categories.add(f'/tc/{path}')
+            # 如果已經係相對路徑
+            elif link.startswith('/tc/') and link.endswith('.html'):
+                categories.add(link)
         
-        # 如果都係空，fallback
+        categories = list(categories)
+        print(f"\n✅ 清理後: {categories}")
+        
+        # Fallback 如果搵唔到
         if not categories:
-            print("⚠️ 自動搵唔到，用後備")
+            print("⚠️ 用後備列表")
             categories = ['/tc/sushi.html', '/tc/sashimi.html', '/tc/gunkan.html']
         
-        # Step 2: 爬每個分類（同之前一樣）
+        # Step 2: 爬每個分類
         for cat in categories:
             print(f"\n📂 {cat}")
-            # ...（後面同之前一樣）
             p_num = 1
+            
             while p_num <= 10:
-                url = f"{base}{cat}" if p_num == 1 else f"{base}{cat}?p={p_num}"
+                # 正確構造 URL
+                if p_num == 1:
+                    url = f"{base}{cat}"
+                else:
+                    url = f"{base}{cat}?p={p_num}"
+                
                 try:
-                    await page.goto(url, wait_until="networkidle", timeout=15000)
+                    response = await page.goto(url, wait_until="networkidle", timeout=15000)
+                    
+                    if response.status != 200:
+                        print(f"  ❌ {response.status}")
+                        break
+                    
+                    if p_num == 1:
+                        try:
+                            await page.click('button:has-text("確定")', timeout=3000)
+                            await asyncio.sleep(1)
+                        except:
+                            pass
+                    
                     await asyncio.sleep(2)
                     
+                    # 提取產品
                     items = await page.evaluate('''() => {
                         const res = [];
                         document.querySelectorAll('.product-item, .item').forEach(el => {
-                            const name = el.querySelector('h3, h4')?.innerText?.trim();
+                            const name = el.querySelector('h3, h4, .product-name')?.innerText?.trim();
                             const img = el.querySelector('img');
                             let src = img?.dataset?.src || img?.src;
                             if (name && src) {
@@ -79,13 +107,14 @@ async def scrape():
                     if not items:
                         break
                     
-                    new = sum(1 for it in items if it['name'] not in seen)
+                    new = 0
                     for it in items:
                         if it['name'] not in seen:
                             seen.add(it['name'])
                             all_items.append(it)
+                            new += 1
                     
-                    print(f"  第{p_num}頁: +{new}項 (共{len(all_items)})")
+                    print(f"  第{p_num}頁: +{new}項")
                     
                     if new == 0:
                         break
