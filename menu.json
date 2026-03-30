@@ -500,6 +500,10 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/g/e/genki_roll.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
+    "name": "牛油果軟殼蟹卷",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/s/o/soft_shell_crab_with_avocado_roll.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
     "name": "辣味三文魚加州手卷",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_spicy_salmon_california_hand_roll_01-07.png?width=451&height=327&store=tc&image-type=small_image"
   },
@@ -510,6 +514,10 @@
   {
     "name": "四色海鮮手卷",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_assorted_sashimi_hand_roll_01.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "香辣軟殼蟹手卷",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_soft_shell_crab_with_lime_leave_spicy_sauce_hand_roll_01.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "炸豬扒手卷",
@@ -598,6 +606,10 @@
   {
     "name": "酥脆魷魚鬚",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/d/e/deep-fried_squid_tentacles.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "炸軟殼蟹",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/d/e/deep-fried_soft_shell_crab.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "香甜粟米杯 (含牛油)",
