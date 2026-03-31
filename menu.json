@@ -1,15 +1,31 @@
 [
   {
-    "name": "鮮魚三貫",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__11._1.png?width=451&height=327&store=tc&image-type=small_image"
+    "name": "柚子鯛魚壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__13_1.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "柚子醬油蝦壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__2_4.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "柚子醬油漬鰹魚壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__4_6.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "鹽燒左口魚裙邊壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__12_1.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "雙重帆立貝壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__10_2.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "蒲燒三文魚腩壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_kabayaki_prime_salmon.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "蝦貝三點",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2512_7031_genki_2026_mar_thematic_menu_online-ordering-site_product-04.png?width=451&height=327&store=tc&image-type=small_image"
+    "name": "本鮪鮫腩壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__6_5.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "帆立貝壽司",
@@ -20,24 +36,12 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_steamed_scallop.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "脆蒜三貫",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2512_7031_genki_2026_mar_thematic_menu_online-ordering-site_product-05_1.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
     "name": "珍寶虎蝦壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2023_core_menu_ordering_site_plp_jumbo_tiger_shrimp_v2_1_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "肉三貫",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2512_7031_genki_2026_mar_thematic_menu_online-ordering-site_product-01_1.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
     "name": "鹽麴鰈魚壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_halibut_with_shio_koji.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "鹽麴吞拿魚蓉海鮮三貫",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2512_7031_genki_2026_mar_thematic_menu_online-ordering-site_product-02.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "大切親子三文魚壽司",
@@ -244,12 +248,12 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_king_crab_stick_salad_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "沙律軍艦三點",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__4_5.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
     "name": "海鮮軍艦三點軍艦",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_r2_seafood_gunkan_trio.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "沙律軍艦三點",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_r2_salad_gunkan_trio_.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "小柱軍艦",
@@ -380,12 +384,24 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2601_7085_genki_pick_mix_sushi_platter_product_shot_v02_20set.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "香濃黑松露熟帶子拌烏冬",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px-7.png?width=451&height=327&store=tc&image-type=small_image"
+    "name": "炙燒鴨胸配清酒鵝肝壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__5_4.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "壽喜燒牛肉芝士吉列飯球",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px-17_1.png?width=451&height=327&store=tc&image-type=small_image"
+    "name": "炙燒鹽蔥牛舌壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px-15_2.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "炙烤蔥香三文魚壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__1_7.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "蒜香牛油蜆湯烏冬",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__3_6.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "粒粒粟米忌廉餅",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__9_1_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "炙燒穴子壽司",
