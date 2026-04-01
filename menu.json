@@ -200,6 +200,10 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/y/e/yellowtail_with_grilled_green_onion_sauce_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
+    "name": "芝士漢堡扒壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_6868_genki_2026_apr_tamagotchi_byod_product_shot_v01_online_ordering_beef_hambuger-with_cheese_sushi.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
     "name": "螺片壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/w/h/whelk.png?width=451&height=327&store=tc&image-type=small_image"
   },
@@ -376,24 +380,8 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/3/2307_5166_genki_sep_core_menu_revamp_drink_tent_card_ordering_site_asahi_beer_tc.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "自選壽司盛(10件)",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2601_7085_genki_pick_mix_sushi_platter_product_shot_v02_10set_1.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "自選壽司盛(20件)",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2601_7085_genki_pick_mix_sushi_platter_product_shot_v02_20set.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
     "name": "炙燒鴨胸配清酒鵝肝壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__5_4.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "炙燒鹽蔥牛舌壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px-15_2.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "炙烤蔥香三文魚壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__1_7.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "蒜香牛油蜆湯烏冬",
@@ -402,6 +390,14 @@
   {
     "name": "粒粒粟米忌廉餅",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__9_1_1.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "吉列免治肉餅",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_6868_genki_2026_apr_tamagotchi_byod_product_shot_v01_online_ordering_minced_meat_-croquette_tc.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "香印提子凍餅",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_6868_genki_2026_apr_tamagotchi_byod_product_shot_v01_online_ordering_shine_muscat_frozen_cake_tc.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "炙燒穴子壽司",
