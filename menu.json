@@ -1,31 +1,15 @@
 [
   {
-    "name": "柚子鯛魚壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__13_1.png?width=451&height=327&store=tc&image-type=small_image"
+    "name": "蛇腹拖羅壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__5_5.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "柚子醬油蝦壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__2_4.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "柚子醬油漬鰹魚壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__4_6.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "鹽燒左口魚裙邊壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__12_1.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "雙重帆立貝壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__10_2.png?width=451&height=327&store=tc&image-type=small_image"
+    "name": "北海道產水蛸壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_12_2.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "蒲燒三文魚腩壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_kabayaki_prime_salmon.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "本鮪鮫腩壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__6_5.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "熟帶子壽司",
@@ -356,16 +340,24 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/3/2307_5166_genki_sep_core_menu_revamp_drink_tent_card_ordering_site_asahi_beer_tc.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "炙燒鴨胸配清酒鵝肝壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__5_4.png?width=451&height=327&store=tc&image-type=small_image"
+    "name": "母之日特選壽司盛",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2603_7195_genki_mothers_day_takeaway_set_ordering_site_product_shot.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "炙燒鹽蔥牛舌壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px-15_2.png?width=451&height=327&store=tc&image-type=small_image"
+    "name": "極上蛇腹拖羅配海膽手卷",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_11_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "炙烤蔥香三文魚壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__1_7.png?width=451&height=327&store=tc&image-type=small_image"
+    "name": "炙燒特上沙甸魚壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_9.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "炙燒穴子鰻魚雙式壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_5_1.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "炙燒脆蒜雙式壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_7_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "蒜香牛油蜆湯烏冬",
@@ -378,10 +370,6 @@
   {
     "name": "吉列免治肉餅",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_6868_genki_2026_apr_tamagotchi_byod_product_shot_v01_online_ordering_minced_meat_-croquette_tc.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "母之日特選壽司盛",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2603_7195_genki_mothers_day_takeaway_set_ordering_site_product_shot.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "炙燒穴子壽司",
