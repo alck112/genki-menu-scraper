@@ -376,12 +376,16 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/g/r/green_tea_powder.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "母之日特選壽司盛",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2603_7195_genki_mothers_day_takeaway_set_ordering_site_product_shot.png?width=451&height=327&store=tc&image-type=small_image"
+    "name": "炙燒蟹膏蝦貝兩點",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_6_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "極上蛇腹拖羅配海膽手卷",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_11_1.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "炙燒脆蒜雙式壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_7_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "炙燒特上沙甸魚壽司",
@@ -392,12 +396,8 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_5_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "炙燒脆蒜雙式壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_7_1.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "炙燒蟹膏蝦貝兩點",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_6_1.png?width=451&height=327&store=tc&image-type=small_image"
+    "name": "母之日特選壽司盛",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2603_7195_genki_mothers_day_takeaway_set_ordering_site_product_shot.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "蒜香牛油蜆湯烏冬",
