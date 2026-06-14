@@ -176,12 +176,16 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/y/e/yellowtail_with_grilled_green_onion_sauce_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
+    "name": "珍寶螺片壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/4/2404_5858_genki_jumbo_fair_2024_online_ordering_site_v02_product_shot-whelk-ch_3.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
     "name": "螺片壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/w/h/whelk.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "赤海蝦壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/r/e/red_shrimp.png?width=451&height=327&store=tc&image-type=small_image"
+    "name": "特大赤海蝦壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_8.1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "三色刺身",
@@ -372,16 +376,16 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_4_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "炙燒脆蒜雙式壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_7_1.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
     "name": "脆蒜蝦蛄天婦羅手卷 (瀨尿蝦)",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_6_2.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "炙燒蔥香赤鯥壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_8.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "夏之豪快蟹手卷",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_7_2.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "芝士牛舌粒雞軟骨串",
