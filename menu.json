@@ -60,6 +60,10 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_seafood_and_shellfish_trio.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
+    "name": "人氣三貫壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_fresh_seafood_trio.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
     "name": "三文魚壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/s/a/salmon.png?width=451&height=327&store=tc&image-type=small_image"
   },
@@ -190,6 +194,14 @@
   {
     "name": "螺片壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/w/h/whelk.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "赤海蝦壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/r/e/red_shrimp.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "日本真鯛壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2025_core_menu_ordering_site_plp_japanese_red_seabream.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "塔斯曼尼亞三文魚刺身配野生胡椒莓汁",
@@ -454,6 +466,10 @@
   {
     "name": "炙燒珍寶皇帝蟹柳壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/s/e/seared_jumbo_crab_stick.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "脆蒜燒日本真鯛壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2025_core_menu_ordering_site_plp_grilled_japanese_red_seabream.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "炙燒白蝦壽司",
