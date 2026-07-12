@@ -28,6 +28,10 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_smoked_duck_breast.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
+    "name": "特大赤貝壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__17_1.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
     "name": "熟帶子壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_steamed_scallop.png?width=451&height=327&store=tc&image-type=small_image"
   },
@@ -192,6 +196,10 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/y/e/yellowtail_with_grilled_green_onion_sauce_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
+    "name": "極上厚切長鰭吞拿魚腩壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2510_6934_genki_urgent_digital_materials_online_ordering_prime_longfin_tuna.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
     "name": "螺片壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/w/h/whelk.png?width=451&height=327&store=tc&image-type=small_image"
   },
@@ -242,6 +250,10 @@
   {
     "name": "帆立貝刺身",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/s/c/scallop_sashimi_1.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "山盛赤海蝦吞拿魚蓉軍艦",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2503_6533_genki_2025_jun_early_summer_fair_online_ordering_site_product_15_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "熟帶子裙邊軍艦",
