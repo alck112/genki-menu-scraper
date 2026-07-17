@@ -408,12 +408,12 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2601_7090_genki_mha_2026_product_shot_v03_online_ordering_sushi_set_tc.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "醬油雞肉串燒",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__5_6.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
     "name": "塔斯曼尼亞風貝柱酥",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__11.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "醬油雞肉串燒",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__5_6.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "炙燒穴子壽司",
