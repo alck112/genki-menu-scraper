@@ -16,6 +16,10 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__15_2_.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
+    "name": "帆立貝壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_scallop_copy_2_1.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
     "name": "美國認證安格斯牛肉®牛翼板壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__9_1_2.png?width=451&height=327&store=tc&image-type=small_image"
   },
@@ -106,6 +110,10 @@
   {
     "name": "黑松露吉列蠔壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/d/e/deep-fried_oyster_with_truffle_sauce.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "北寄貝壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/s/u/surf_clam.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "赤貝壽司",
@@ -398,6 +406,10 @@
   {
     "name": "炙燒脆蒜赤海蝦壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2024_core_menu_orderingsite_plp_seared_red_shrimp_with_crispy_garlic.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "炙燒鹽蔥帆立貝壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_seared_scallop_with_grilled_green_onion_sauce_copy_2.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "炙燒辣味噌大切三文魚壽司",
