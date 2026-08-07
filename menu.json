@@ -684,6 +684,10 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/3/2306_5092_genki_okuta_kun___tokuchan_menu_online-order_product_shot_chi-01_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
+    "name": "迷你泡芙配海鹽焦糖醬",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2607_7380_genki_caramel_clearance_online_ordering.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
     "name": "抹茶大福",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_matcha_daifuku.png?width=451&height=327&store=tc&image-type=small_image"
   },
@@ -694,9 +698,5 @@
   {
     "name": "濃厚生朱古力",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png_-02_2_6.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "迷你泡芙配海鹽焦糖醬",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2607_7380_genki_caramel_clearance_online_ordering.png?width=451&height=327&store=tc&image-type=small_image"
   }
 ]
