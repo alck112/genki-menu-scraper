@@ -328,10 +328,6 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2502_6401_genki_product_image_for_drinks_online_ordering_mixed_fruits_juice_chi.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "日本蘋果汁",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2505_6616_genki_apple_juice_digital_materials_ordering_site.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
     "name": "可口可樂",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/3/2308_5246_genki_soft_drink_-_digital_material_web_400x_290_original_coca.png?width=451&height=327&store=tc&image-type=small_image"
   },
@@ -378,6 +374,10 @@
   {
     "name": "松竹梅日本農園沖繩產菠蘿汽酒",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2511_6984_genki_product_image_for_new_alcohol_online_ordering_a_tc_1.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "日本蘋果汁",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2505_6616_genki_apple_juice_digital_materials_ordering_site_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "極上厚切鰻魚壽司",
