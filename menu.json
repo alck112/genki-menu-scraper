@@ -384,10 +384,6 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2505_6616_genki_apple_juice_digital_materials_ordering_site_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "DAN DA DAN盲盒壽司盛",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2603_7163_genki_2026_dandadan_product_shot_v1_online_ordering_blind_set_tc.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
     "name": "神痴 (特長炙燒鹽蔥左口魚裙邊)",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2603_7163_genki_2026_dandadan_product_shot_v1_online_ordering_okarun_sushi_tc.png?width=451&height=327&store=tc&image-type=small_image"
   },
@@ -410,6 +406,10 @@
   {
     "name": "炸雞皮餃子",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__16_2.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "DAN DA DAN特選壽司盛",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2603_7163_genki_2026_dandadan_product_shot_v1_online_ordering_sushi_set_tc.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "炙燒穴子壽司",
