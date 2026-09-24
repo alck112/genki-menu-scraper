@@ -268,10 +268,6 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_crab_roe_salad.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "沙律軍艦三貫",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_salad_gunkantrio.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
     "name": "小柱軍艦",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2608_7463_genki_digital_materials_-_baby_scallop_gunkan_ordering_site_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
@@ -334,6 +330,10 @@
   {
     "name": "海鮮軍艦三貫軍艦",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_r2_seafood_gunkan_trio.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "沙律軍艦三貫",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp-14.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "日本雜果汁",
@@ -400,20 +400,20 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__11_4.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "煮干醬油拌麵(絕豚監修)",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__17_3.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "叉燒",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__8_7.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
     "name": "炙燒蔥香熟帆立貝壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_4_3.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "天婦羅蝦卷",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__12_5.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "煮干醬油拌麵(絕豚監修)",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__17_3.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "叉燒",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__8_7.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "海膽蝦仁小柱手卷",
