@@ -436,6 +436,10 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_seared_scallop_with_grilled_green_onion_sauce_copy_2.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
+    "name": "炙燒蔥香珍寶熟帆立貝壽司",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_jumbo_boiled_scallop_with-grilled_green_onion_sauce.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
     "name": "炙燒辣味噌大切三文魚壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2023_core_menu_ordering_site_plp_r2_seared_jumbo_salmon_with_spicy_miso_sauce.png?width=451&height=327&store=tc&image-type=small_image"
   },
@@ -488,10 +492,6 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_seared_white_shrimp.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "炙燒蔥香珍寶熟帆立貝壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_jumbo_boiled_scallop_with-grilled_green_onion_sauce.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
     "name": "自選壽司盛(12件)",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2601_7085_genki_pick_mix_sushi_platter_product_shot_v03_12set.png?width=451&height=327&store=tc&image-type=small_image"
   },
@@ -533,7 +533,7 @@
   },
   {
     "name": "牛油果軟殼蟹卷",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/s/o/soft_shell_crab_with_avocado_roll.png?width=451&height=327&store=tc&image-type=small_image"
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/s/o/soft_shell_crab_with_avocado_roll_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "蟹皇手卷",
