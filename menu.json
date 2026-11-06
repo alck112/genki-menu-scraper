@@ -181,7 +181,7 @@
   },
   {
     "name": "漬燒大切南方藍鰭中拖羅",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__5_8.png?width=451&height=327&store=tc&image-type=small_image"
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2608_7444_genki_2026_nov_thematic_menu_ordering_site_not_embed_icc.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "醬油漬豪快南方藍鰭中拖羅",
@@ -224,6 +224,10 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/r/e/red_shrimp_sashimi.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
+    "name": "吞拿魚刺身",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/t/u/tuna_sashimi_1.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
     "name": "三色刺身",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_assorted_sashimi.png?width=451&height=327&store=tc&image-type=small_image"
   },
@@ -242,6 +246,14 @@
   {
     "name": "蝦貝刺身三點",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_shrimp_and_shellfish_trio_sashimi.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "北海道鮮甜白粟米軍艦",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__6_9.png?width=451&height=327&store=tc&image-type=small_image"
+  },
+  {
+    "name": "照燒帆立貝軍艦",
+    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__10_6.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "蛋沙律軍艦",
@@ -326,14 +338,6 @@
   {
     "name": "三文魚籽軍艦",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/s/a/salmon_roe_3.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "照燒帆立貝軍艦",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__10_6.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "北海道鮮甜白粟米軍艦",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/r/brand_site_400x290px_png__6_9.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "日本雜果汁",
