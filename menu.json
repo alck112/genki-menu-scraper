@@ -4,16 +4,8 @@
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_scallop_copy_2_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
-    "name": "熟帶子壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/5/2509_sep_core_menu_update_online-ordering-site_plp_steamed_scallop.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
     "name": "他他醬吉列蝦壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_deep-fried_shrimp_with_tartar_sauce.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "海鮮三貫",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_assorted_seafood_trio.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "鹽麴鰈魚壽司",
@@ -90,10 +82,6 @@
   {
     "name": "熟蝦壽司",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/b/o/boiled_shrimp.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "甜蝦壽司",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/2/2206_04354_jap_gekhd_genki_website_revamp_product_image_04_shrimp_sushi-04.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "蒲燒鰻魚壽司",
@@ -274,10 +262,6 @@
   {
     "name": "三文魚沙律軍艦",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/0/2026_core_menu_ordering_site_plp_salmon_salad.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "小柱軍艦",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/2/6/2608_7463_genki_digital_materials_-_baby_scallop_gunkan_ordering_site_1.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "甜玉米軍艦",
@@ -614,10 +598,6 @@
   {
     "name": "炸雞翼",
     "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/d/e/deep-fried_chicken_wing.png?width=451&height=327&store=tc&image-type=small_image"
-  },
-  {
-    "name": "大阪章魚燒",
-    "imgUrl": "https://order.genkisushi.com.hk/media/catalog/product/t/a/takoyaki.png?width=451&height=327&store=tc&image-type=small_image"
   },
   {
     "name": "章魚唐揚",
